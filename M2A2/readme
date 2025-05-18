@@ -1,0 +1,91 @@
+// ===== V1 =====
+/*
+function generarTabla() {
+    const filas = parseInt(document.getElementById("filas").value);
+    const columnas = parseInt(document.getElementById("columnas").value);
+    let html = "<table>";
+    
+    for (let i = 0; i < filas; i++) {
+        html += "<tr>";
+        for (let j = 0; j < columnas; j++) {
+            html += `<td>F${i + 1}C${j + 1}</td>`;
+        }
+        html += "</tr>";
+    }
+    html += "</table>";
+    document.getElementById("tabla-container").innerHTML = html;
+}
+*/
+
+// ===== V2 =====
+/*
+function leerDatos() {
+    const filas = parseInt(document.getElementById("filas").value);
+    const columnas = parseInt(document.getElementById("columnas").value);
+    crearTabla(filas, columnas);
+}
+
+function crearTabla(filas, columnas) {
+    let html = "<table>";
+    for (let i = 0; i < filas; i++) {
+        html += "<tr>";
+        for (let j = 0; j < columnas; j++) {
+            html += `<td>F${i + 1}C${j + 1}</td>`;
+        }
+        html += "</tr>";
+    }
+    html += "</table>";
+    document.getElementById("tabla-container").innerHTML = html;
+}
+*/
+
+// ===== V3 =====
+/*
+function leerDatos() {
+    const filas = parseInt(document.getElementById("filas").value);
+    const columnas = parseInt(document.getElementById("columnas").value);
+    
+    if (isNaN(filas) || isNaN(columnas) || filas <= 0 || columnas <= 0) {
+        alert("¡Error! Ingresa números mayores a 0.");
+        return;
+    }
+    crearTabla(filas, columnas);
+}
+*/
+
+// ===== V4 =====
+/*
+function crearTabla(filas, columnas) {
+    const tabla = document.createElement("table");
+    for (let i = 0; i < filas; i++) {
+        const tr = document.createElement("tr");
+        for (let j = 0; j < columnas; j++) {
+            const td = document.createElement("td");
+            td.textContent = `F${i + 1}C${j + 1}`;
+            tr.appendChild(td);
+        }
+        tabla.appendChild(tr);
+    }
+    const container = document.getElementById("tabla-container");
+    container.innerHTML = ""; // Limpiar contenedor
+    container.appendChild(tabla);
+}
+*/
+
+// ===== V5 =====
+/*
+function leerDatos() {
+    try {
+        const filas = parseInt(document.getElementById("filas").value);
+        const columnas = parseInt(document.getElementById("columnas").value);
+        
+        if (isNaN(filas) throw new Error("Filas no es un número válido.");
+        if (isNaN(columnas)) throw new Error("Columnas no es un número válido.");
+        if (filas <= 0 || columnas <= 0) throw new Error("Los valores deben ser mayores a 0.");
+        
+        crearTabla(filas, columnas);
+    } catch (error) {
+        alert("Error: " + error.message);
+    }
+}
+*/
